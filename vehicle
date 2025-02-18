@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<string.h>
+
+void VechileDetails(int n,char vehicletype[][10], float *collection)
+ {
+    printf("enter number of vehicles:");
+    scanf("%d",&n);
+    for(int i=0; i<n; i++)
+      {
+        printf("enter the vehicle type:");
+        scanf("%s",vehicletype[i]);
+     
+       if(strcmp(vehicletype[i],"car")==0)
+        {
+            *collection+=50;
+    
+        }
+      else if(strcmp(vehicletype[i],"Truck")==0)
+        {
+            *collection+=100;
+        }   
+      else if(strcmp(vehicletype[i],"bike")==0)
+        {
+            *collection+=20;
+        }
+      }
+    printf("total collection: %.2f\n",*collection);
+
+}
+
+int main()
+{
+   int n,i;
+   char vehicletype[100][10];
+   float collection=0.0;
+   VechileDetails(n,vehicletype, &collection);//function call
+  
+   return 0;
+}
+   
+    
