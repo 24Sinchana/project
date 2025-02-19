@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+struct student{
+    char name[255];
+    int marks;
+};
+typedef struct student students;
+void Readstudents(students* std ,int n)
+{
+for(int i=0;i<n;i++)
+{
+printf("enter student %d name:",i+1);
+scanf(" %s",std[i].name);
+printf("enter student marks:");
+scanf(" %d",&std[i].marks);
+}
+
+}
+void printstudents(students* std, int n){
+    printf("student record:\n");
+    for(int i=0;i<n;i++){
+        printf("%s - %d\n",std[i].name, std[i].marks);
+    }
+}
+
+int main()
+{ 
+   int i,n;
+   students std[100];  //poiinter std
+   int marks;
+
+   printf("enter the number of students:");
+   scanf("%d",&n);
+   
+   Readstudents(std,n);
+   printstudents(std,n);
+
+   return 0;
+}
