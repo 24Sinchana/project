@@ -1,0 +1,99 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Fiction_t
+{
+    char title[250];
+    char author[175];
+    float price;
+};
+typedef struct Fiction_t Fiction;
+
+
+struct NonFiction_t
+{
+    char title[250];
+    char subject[500];
+    float price;
+};
+typedef struct NonFiction_t NonFiction;
+
+union BookType_t
+{
+    Fiction fiction;
+    NonFiction nonfiction;
+};
+typedef union BookType_t booktype;
+
+struct Book_t
+{
+    int type;
+    Booktype booktype;
+};
+typedef struct Book_t Book;
+
+
+Book Books[1000];
+int BookCount;
+
+void addBooks();
+void displyaBooks();
+
+int main()
+{
+    addBooks();
+    displyaBooks();
+    return 0;
+}
+
+void addBooks()
+{
+    printf("enter number of books:");
+    scanf("%d ",&BookCount);
+    
+    for(int i=0;i<BookCount;i++)
+    {
+        printf("type of book(1:Fiction 2:Non-Fiction");
+        scanf("%d",Books[i].type);
+        
+        switch(Books[i].type)
+        {
+            case 1: {
+                printf("enter fiction Book details:");
+                scanf("%s %s %f",Books[i].booktype.fiction.title
+                ,Books[i].fiction.author,
+                 Books[i].Booktype.fiction.price);
+                   }break;
+            
+            case 2: {
+                printf("enter fiction Book details:");
+                scanf("%s %s %f",Books[i].booktype.nonfiction.title,Books[i].nonfiction.subject,
+                     Books[i].nonfiction.price);
+                    }break;
+                
+             }
+        }
+    }
+
+void displayBooks()
+{
+    for(int i=0;i<BookCount;i++)
+    {
+    
+        switch(Books[i].type)
+        {
+            case 1: {
+               printf("Fiction Book:%s,author: %s,Price: %,2f",Books[i].booktype.fiction.title
+                ,Books[i].fiction.subject,
+                 Books[i].booktype.fiction.price);
+                   }break;
+            
+            case 2: {
+                printf("%s %s %f",Books[i].booktype.nonfiction.title,Books[i].nonfiction.subject,
+                     Books[i].nonfiction.price);
+                    }
+                    break;
+        }
+    }
+}
+                
