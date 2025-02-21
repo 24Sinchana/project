@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    int id;
+    char name[255];
+    float salary;
+    int attendance;
+
+    printf("enter employee id:");
+    scanf("%d",&id);
+
+    printf("enter employee name:");
+    scanf("%s",name);
+
+    printf("enter employee Salary:");
+    scanf("%f",&salary);
+
+    printf("enetr number of days worked:");
+    scanf("%d",&attendance);
+
+    float bonus = 0.0f;
+    float gross_salary = 0.0f;
+    char category[50]="good";
+
+
+
+    if (attendance>25)
+      {
+        bonus=( salary/100.0f)*5.0f;
+      }
+    else if (attendance<10)
+      {
+        bonus=(-1.0f*((salary/100.0f)*50.0f));
+      }
+      //final salary
+     gross_salary = (salary+bonus);
+      //categorize
+     if(attendance>25)
+      { 
+          strcpy(category,"excellent");
+      }
+          
+    else if(attendance<15)
+      {
+          strcpy(category,"Need improvement");
+      }
+      printf("\temployee details:\n");
+      printf("\tid :%d\n",id);
+      printf("\tName :%s\n",name);
+      printf("\tBasic salary:%.2f\n",salary); 
+      if (bonus>0)
+      {
+          printf("\t Bonus:%.2f\n",bonus);
+      }
+      
+      printf("\tfinal salary:%.2f\n",gross_salary); 
+      printf("\tEMPLOYEE PERFORMANCE CATEGORY:%s\n",category);
+     
+}
