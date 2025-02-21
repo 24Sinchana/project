@@ -1,0 +1,80 @@
+#include<stdio.h>
+#include<string.h>
+void readEmployee(int* p_id, char* p_name,float* p_salary, int* p_attendance)
+{
+     printf("enter employee id:");
+    scanf("%d",p_id);
+
+    printf("enter employee name:");
+    scanf("%s",p_name);
+
+    printf("enter employee Salary:");
+    scanf("%f",p_salary);
+
+    printf("enetr number of days worked:");
+    scanf("%d",p_attendance);
+}
+
+float calculateBonus(float salary,int attendance)
+{
+    float bonus=0.0f;
+    if (attendance>25)
+      {
+        bonus=( salary/100.0f)*5.0f;
+      }
+    else if (attendance<10)
+      {
+        bonus=(-1.0f*((salary/100.0f)*50.0f));
+      }
+      return bonus;
+}
+
+void categorizeEmployee(char* category,int attendance)
+{
+    if(attendance>25)
+     {
+          strcpy(category,"excellent");
+      }
+          
+    else if(attendance<15)
+      {
+          strcpy(category,"Need improvement");
+      }
+}
+
+void printEpmloyeeDetails(int id,char* name,float salary,float* bonus,float gross_salary,char* category)
+{
+     printf("\temployee details:\n");
+      printf("\tid :%d\n",id);
+      printf("\tName :%s\n",name);
+      printf("\tBasic salary:%.2f\n",salary); 
+      if (bonus>0)
+      {
+          printf("\t Bonus:%.2f\n",bonus);
+      }
+      
+      printf("\tfinal salary:%.2f\n",gross_salary); 
+      printf("\tEMPLOYEE PERFORMANCE CATEGORY:%s\n",category);
+     
+}
+int main()
+{
+    int id;
+    char name[255];
+    float salary;
+    int attendance;
+    
+    readEmployee(int* p_id, char* p_name,float* p_salary, int* p_attendance);
+    
+    float bonus =0.0f;
+    float gross_salary = 0.0f;
+    char category[50]="good";
+    
+    bonus = calculateBonus(float salary,int attendance);
+    gross_salary = (salary+bonus);
+    categorizeEmployee(char* category,int attendance);
+    printEpmloyeeDetails(int id,char*name,float* salary,float bonu,float gross_salary,char*category);
+    
+    return 0;
+     
+}
