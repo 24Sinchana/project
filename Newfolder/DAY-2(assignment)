@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int calculateBill(int amount)
+{  
+    float discount=0.0;
+    printf("enter total bill amount:");
+    scanf("%d", &amount);
+    
+    if((amount>=500) && (amount<=1000))
+    {
+        discount = amount*0.10;
+        printf("Final Payable Amount : %.2f\n", amount-discount);
+    }
+
+    else if(amount > 1000)
+{
+    discount = amount*0.20;
+    printf("Final Payable Amount : %.2f\n", amount-discount);
+}
+   
+return 0;
+}
+
+
+int main()
+{
+    int amount;
+    calculateBill(amount);
+    return 0;  
+}
